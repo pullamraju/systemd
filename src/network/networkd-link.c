@@ -3249,8 +3249,9 @@ static int link_carrier_gained(Link *link) {
         int r;
 
         assert(link);
-
+        log_link_info(link, "HERE 3252");
         if (!IN_SET(link->state, LINK_STATE_PENDING, LINK_STATE_UNMANAGED, LINK_STATE_FAILED)) {
+                log_link_info(link, "HERE 3254");
                 r = link_acquire_conf(link);
                 if (r < 0) {
                         link_enter_failed(link);
